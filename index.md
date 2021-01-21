@@ -1,3 +1,3 @@
 ## Welcome to Adam Grant's Website
 
-A visual companion to mathematical concepts relevant to programming.
+Where I write about mathematical concepts relevant to programming.
