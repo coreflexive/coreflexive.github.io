@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Up- and down-sets
+author: "Adam W. Grant"
 date: "2021-01-27"
 ---
 
