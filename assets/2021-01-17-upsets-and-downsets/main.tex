@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{ marvosym }
+\usepackage{amscd}
+
+\newtheorem*{defn}{Definition}
+
+\title{Up- and down-sets}
+\author{Adam W. Grant }
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Despite their tendency to obscure simple concepts in a mess of natural language and quantified variables, pointwise definitions are abundant in the literature.  It doesn't have to be this way.  In what follows, we will see how Oliveira's Pointfree Transform can be used to manipulate a pointwise definition from a well-known textbook into a particularly concise form.
+
+\section{Our subject definition}
+In their textbook ``Introduction to Lattices and Order" \cite{davey_priestley_2002}, Davey and Priestley provide us with the following definition:
+
+\begin{defn}
+Let P be an ordered set and $Q \subseteq P$.
+\begin{enumerate}
+    \item Q is a down-set (alternative terms include decreasing set and order ideal) if, whenever $x \in Q$, $y \in P$ and $y \leq x$, we have $y \in Q$.
+    \item Dually, Q is an up-set (alternative terms are increasing set and order filter) if, whenever $x \in Q$, $y \in P$ and $y \geq x$, we have $y \in Q$.
+\end{enumerate}
+\end{defn}
+The authors go further to define the $\uparrow$ and $\downarrow$ operators, which are used to construct up- and down-sets, respectively.  We'll not concern ourselves with those in this particular note.  Instead we will derive a pointfree version of their specifications.
+
+\section{The Pointfree Transform}
+The pointfree transform (henceforth PFT) is a set of transformational rules to be applied to a pointwise (PW) formula in order to make it amenable to manipulations in relation algebra.  Besides their concision, the resulting pointfree (PF) formulae tend to reveal more about whatever is being formally modelled than the original ever could.  You can read about the PFT in \cite{Oliveira2009}. Let's see what it does to the definition of a down-set.
+
+\section{Applying the PFT}
+The PFT works with formulae of the predicate calculus, but our subject is given mostly in natural language.  So before we can apply the PFT, we must translate the definition into symbols.  Here is the translation into symbols for what it means for $Q$ to be a down-set:
+\begin{equation}
+    \forall(y,x : x \in Q \wedge y \leq x : y \in Q)
+\end{equation}
+With that in hand, we derive the PF version:
+\begin{itemize}
+    \item $\forall(y,x : x \in Q \wedge y \leq x : y \in Q)$
+    \item[$\equiv$] $\{\text{Predicate calculus}\}$
+    \item[] $\forall(y,x : x \in Q \wedge y \leq x : y \in Q \wedge y \leq x)$
+    \item[$\equiv$] $\{\text{Coreflexives}\}$
+    \item[] $\forall(y,x : y(\leq \cdot \, \Phi_{Q})x : y(\Phi_{Q} \, \cdot \leq )x )$
+    \item[$\equiv$] $\{\text{Relation inclusion}\}$
+    \item[] $\leq \cdot \, \Phi_{Q} \subseteq \Phi_{Q} \, \cdot \leq $
+    \item[\Heart]
+\end{itemize}
+In a few short steps, we have arrived at the PF characterisation of a down-set: $Q$ is a down-set iff
+\begin{equation}
+    \leq \cdot \, \Phi_{Q} \subseteq \Phi_{Q} \, \cdot \leq
+\end{equation}
+Not only is (2) more concise than (1), but it is easier to draw.
+
+\section{Diagramming the PF version}
+Formulae containing explicit quantifications are hard to draw.  Hence the curious ``directional Venn diagram" used in \cite{davey_priestley_2002} to illustrate up- and down-sets. A diagram the authors remark as ``not having the same formal status as (Hasse) diagrams".  Thanks to the prominence of composition in (2), it can be easily drawn as a semi-commutative diagram
+\begin{equation}
+\begin{CD}
+P  @>\leq>> P \\
+@V\Phi_{Q}VV    @VV\Phi_{Q}V \\
+P  @>>\leq> P
+\end{CD}    
+\end{equation}
+This diagram does have formal status. The lower side of the relation inclusion in (2) corresponds to chasing the left then bottom arrows.  Similarly, we chase the top then right arrows to read off the upper side.  Such diagrams give us -- almost for free -- the dual of the concept they represent. 
+
+\section{Exploiting duality}
+The dual of a down-set is an up-set.  We can deduce its specification from the diagram (3). Watch what happens when we replace $\leq$ in (3) by $\geq$
+\begin{equation}
+\begin{CD}
+P  @>\geq>> P \\
+@V\Phi_{Q}VV       @VV\Phi_{Q}V \\
+P  @>>\geq> P
+\end{CD}    
+\end{equation}
+We get a diagram which represents the inequation
+\begin{equation}
+    \geq \cdot \, \Phi_{Q} \subseteq \Phi_{Q} \, \cdot \geq
+\end{equation}
+Again we use the rules of the PFT, but this time to expand (5) to its pointwise form:
+\begin{equation}
+    \forall( y,x : x \in Q \wedge y \geq x : y \in Q )
+\end{equation}
+which is exactly the specification for an up-set given in the original definition.
+That is, $Q$ is an up-set iff
+\begin{equation}
+    \geq \cdot \, \Phi_{Q} \subseteq \Phi_{Q} \, \cdot \geq
+\end{equation}
+Notice how similar are the inequations in (2) and (7).  We can clearly see that one is the dual of the other.  This differs from the pointwise version at which you have to squint to notice among the extra symbols in which direction the ordering relation ``points".  
+
+\section{Summing up}
+Using Oliveira's PFT, we have derived the pointfree characterisations of what it means for a set to be an up-set or down-set. Namely,
+\begin{defn}
+Let P be an ordered set and $Q \subseteq P$.
+\begin{enumerate}
+    \item Q is a down-set iff $\leq \cdot \, \Phi_{Q} \subseteq \Phi_{Q} \, \cdot \leq$
+    \item Q is an up-set iff $\geq \cdot \, \Phi_{Q} \subseteq \Phi_{Q} \, \cdot \geq$.
+\end{enumerate}
+\end{defn}
+This definition uses fewer symbols than the pointwise version, and is easy to depict as a semi-commutative diagram.  Moreover, the duality between up-sets and down-sets is more prominent in the pointfree version.
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
