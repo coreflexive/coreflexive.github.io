@@ -7,7 +7,7 @@ author: "Adam W. Grant"
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-Associated with each uanry predicate $$p$$ is a coreflexive relation, which can be described using a set comprehension of the form
+Associated with each unary predicate $$p$$ is a coreflexive relation, which can be described using a set comprehension of the form
 
 $$\{ z : p.z : (z,z)\}$$
 
