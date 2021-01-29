@@ -8,7 +8,11 @@ author: "Adam W. Grant"
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 Given its comprehension, it is easy to turn a set into a coreflexive relation.  You simply change the body of the comprehension from a scalar to a pair. For example, the set comprehension:
-\[\{ x : p.x : x\}\]
+
+$$[\{ x : p.x : x\}$$
+
 has the associated coreflexive relation
-\[\{ x : p.x : (x,x)\}\]
+
+$$\{ x : p.x : (x,x)\}$$
+
 And that's it.
