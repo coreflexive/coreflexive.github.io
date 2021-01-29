@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{marvosym}
+\usepackage{amscd}
+
+\title{Coreflexive Membership}
+\author{Adam W. Grant}
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+The set comprehension
+\begin{equation}
+    \{ z : p.z : z\}
+\end{equation}
+describes a set of scalars.  We can transform this into a set of pairs by adjusting the body of the relation
+\begin{equation}
+    \{ z : p.z : (z,z)\}
+\end{equation}
+Now what does it mean for an arbitrary pair $(y,x)$ to be a member of (2)?  Let's calculate\footnote{All hints in the proof name theorems from \cite{10.5555/1963395} except for ``coreflexive notation", which comes from \cite{Oliveira2009}.}:
+\begin{itemize}
+    \item $(y,x) \in \{ z : p.z : (z,z)\}$
+    \item[$\equiv$] $\{\text{Set membership}\}$
+    \item[] $\exists(z : p.z : (y,x) = (z,z))$
+    \item[$\equiv$] $\{\text{Pair equality}\}$
+    \item[] $\exists(z : p.z : y=z \wedge x=z)$
+    \item[$\equiv$] $\{\text{Double trading}\}$
+    \item[] $\exists(z : x=z : y=z \wedge p.x)$
+    \item[$\equiv$] $\{\text{One-point rule}\}$
+    \item[] $y=x \wedge p.x$
+    \item[$\equiv$] $\{\text{Coreflexive notation}\}$
+    \item[] $y \Phi_{p} x$
+    \item[\Heart]
+\end{itemize}
+And so we see that
+\begin{equation*}
+    (y,x) \in \{ z : p.z : (z,z)\}
+\end{equation*}
+\begin{equation*}
+    y=x \wedge p.x
+\end{equation*}
+\begin{equation*}
+    y \Phi_{p} x
+\end{equation*}
+have the same meaning.
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}
