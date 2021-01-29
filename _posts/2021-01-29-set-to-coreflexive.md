@@ -9,7 +9,7 @@ author: "Adam W. Grant"
 
 Given its comprehension, it is easy to turn a set into a coreflexive relation.  You simply change the body of the comprehension from a scalar to a pair. For example, the set comprehension:
 
-$$[\{ x : p.x : x\}$$
+$$\{ x : p.x : x\}$$
 
 has the associated coreflexive relation
 
