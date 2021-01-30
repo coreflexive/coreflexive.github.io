@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{ marvosym }
+\usepackage{amscd}
+
+\newtheorem*{defn}{Definition}
+
+\title{Up and down}
+\author{Adam W. Grant }
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+After defining what it means to be an up-set or a down set, the authors of \cite{davey_priestley_2002} introduce the reader to the $\uparrow$ and $\downarrow$ operators.
+\begin{defn}
+Given an arbitrary subset $Q$ of $P$ and $x \in P$, we define
+\begin{align*} 
+\downarrow Q := \{y \in P : \exists(x : x \in Q : y \leq x)\} &\text{ and }  \uparrow Q := \{y \in P : \exists(x : x \in Q : y \geq x)\} \\ 
+\downarrow x := \{y \in P : y \leq x\} &\text{ and }  \uparrow x := \{y \in P : y \geq x)\}
+\end{align*}
+These are read `down Q', etc.
+\end{defn}
+In this note we will derive the coreflexive relations associated to each operation.
+
+\section{Down Q, relationally}
+By inspection, we see that the characteristic predicate of $\downarrow.Q$ is:
+\begin{equation}
+    \exists(x : x \in Q : y \leq x)
+\end{equation}
+Let's calculate its PFT
+\begin{itemize}
+    \item $\exists(x : x \in Q : y \leq x)$
+    \item[$\equiv$] $\{\text{Trading; Coreflexives}\}$
+    \item[] $\exists(x : : y (\leq \cdot \Phi_{Q}) x)$
+    \item[$\equiv$] $\{\text{$\wedge$ Idempotent; Trading}\}$
+    \item[] $\exists(x : y (\leq \cdot \Phi_{Q}) x : y (\leq \cdot \Phi_{Q}) x)$
+    \item[$\equiv$] $\{\text{Converse}\}$
+    \item[] $\exists(x : y (\leq \cdot \Phi_{Q}) x : x (\leq \cdot \Phi_{Q})^{\circ} y)$
+    \item[$\equiv$] $\{\text{Composition}\}$
+    \item[] $y ((\leq \cdot \Phi_{Q}) \cdot (\leq \cdot \Phi_{Q})^{\circ}) y$
+    \item[$\equiv$] $\{\text{Image}\}$
+    \item[] $y (img(\leq \cdot \Phi_{Q})) y$
+    \item[\Heart]
+\end{itemize}
+Characteristic predicates are sometimes denoted by the greek letter $\chi$, so let's say that:
+\begin{equation*}
+    \chi.y \,\equiv\, y (img(\leq \cdot \Phi_{Q})) y
+\end{equation*}
+Then we can use the fact\footnote{Explained in reference \cite{Oliveira2009}} that
+\begin{equation*}
+    z \,\Phi_{\chi} y \,\equiv\, z = y \wedge \chi. y
+\end{equation*}
+to find the coreflexive relation associated to (1):
+\begin{itemize}
+    \item $z \,\Phi_{\chi} y$
+    \item[--] $\chi.y \; \equiv \; y(img(\leq \cdot \Phi_{Q})) y$
+    \item[$\equiv$] $\{\text{Coreflexives; $\chi$}\}$
+    \item[] $z = y \wedge y(img(\leq \cdot \Phi_{Q})) y$
+    \item[$\equiv$] $\{\text{Substitution}\}$
+    \item[] $z = y \wedge z(img(\leq \cdot \Phi_{Q})) y$
+    \item[$\equiv$] $\{\text{Introduce $id$; Meet}\}$
+    \item[] $z (id \cap img(\leq \cdot \Phi_{Q}) y$
+    \item[$\equiv$] $\{\text{Range}\}$
+    \item[] $z (\rho(\leq \cdot \Phi_{Q}) y$
+    \item[\Heart]
+\end{itemize}
+And so we have that the coreflexive relation associated to the set $\downarrow.Q$ is
+\begin{equation}
+    \rho(\leq \cdot \Phi_{Q})
+\end{equation}
+Thanks to the duality between the range and domain operators, we can express (3) equivalently as
+\begin{equation}
+    \delta(\Phi_{Q} \cdot \geq)
+\end{equation}
+which is perhaps more intuitive.
+
+\section{Up Q, relationally}
+The PFT for $\uparrow$ the same (mutatis mutandis) as that already seen for $\downarrow$, so we'll just state the result.  The coreflexive associated to the set $\uparrow.Q$ is:
+\begin{equation}
+    \rho(\geq \cdot \Phi_{Q})
+\end{equation}
+or
+\begin{equation}
+    \delta(\Phi_{Q} \cdot \leq)
+\end{equation}
+Relation (5) is somewhat less intuitive than (4).
+
+\section{What about $x$?}
+We can use what we already have to find the relational counterparts for principle down- and up-sets.  For the former, we substitute $\{x\}$ for $Q$ in (3)
+\begin{equation}
+    \delta(\Phi_{\{x\}} \cdot \geq)
+\end{equation}
+As for $\uparrow.x$, we perform the same substitution to (7)
+\begin{equation}
+    \rho(\geq \cdot \Phi_{\{x\}})
+\end{equation}
+There's no need to define separate constructions for sets versus individuals.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
