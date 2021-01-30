@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{marvosym}
+\usepackage{amscd}
+
+\usepackage{csquotes}
+
+\title{Strict Order}
+\author{Adam W. Grant}
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+
+The textbook \cite{davey_priestley_2002} explains a strict order as follows
+\begin{displayquote}
+An order relation $\leq$ on $P$ gives rise to a relation $<$ of \textbf{strict inequality}: $x < y$ if and only if $x \leq y$ and $x\neq y$.
+\end{displayquote}
+The following calculation shows how to say the same without points
+\begin{itemize}
+    \item $x < y$
+    \item[$\equiv$] $\{\text{Definition of $<$}\}$
+    \item[] $x \leq y \wedge x \neq y$
+    \item[$\equiv$] $\{\text{Expand abbreviation}\}$
+    \item[] $x \leq y \wedge \neg (x = y)$
+    \item[$\equiv$] $\{\text{Identity}\}$
+    \item[] $x \leq y \wedge \neg (x \,id\, y)$
+    \item[$\equiv$] $\{\text{Difference}\}$
+    \item[] $x (\leq - \;id) y$
+    \item[\Heart]
+\end{itemize}
+So the pointfree equivalent of the above definition is
+\begin{equation*}
+    < \;= \; \leq - \;id
+\end{equation*}
+Informally, we can say that removing all of the reflexive arrows from a partial order $\leq$ gives us its corresponding strict order $<$.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
