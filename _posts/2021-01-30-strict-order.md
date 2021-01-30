@@ -11,4 +11,4 @@ Informally speaking, we can say that removing all of the reflexive arrows from a
 
 $$< \;= \; \leq - \;id$$
 
-The formal argument can be found [here]
+The formal argument can be found [here](/assets/2021/01/30/strict-order/strict_order.pdf)
