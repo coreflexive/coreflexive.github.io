@@ -8,8 +8,8 @@ author: "Adam W. Grant"
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 Below are two diagrams of the same partial order:
-[note](/assets/2021/02/23/cover-relation/partial-order.png)
-[note](/assets/2021/02/23/cover-relation/cover.png)
+![A Partial Order](/assets/2021/02/23/cover-relation/partial-order.png)
+![A Covering Relation](/assets/2021/02/23/cover-relation/cover.png)
 
 The first depicts the graph of a relation (called R), whereas the second shows R's _covering relation_.  It should be clear that the second is a pared-down version of the first.  The two are precisely connected by the following definition:
 
