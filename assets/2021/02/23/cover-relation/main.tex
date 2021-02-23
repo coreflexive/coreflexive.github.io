@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsthm}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{ marvosym }
+\usepackage{amscd}
+
+\newtheorem*{defn}{Definition}
+
+\title{The Cover Relation}
+\author{Adam W. Grant}
+\date{February 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+In this note we take a definition of the covering relation and subject it to the Pointfree Transform.  The result is an expression which represents a straightforward recipe for the construction of the covering relation from a partial order.
+
+\section{The Cover Relation Defined}
+The following is taken from \cite{davey_priestley_2002}
+\begin{defn}
+Let $P$ be an ordered set and let $x,y \in P$.  We say that $x$ is \textbf{covered by} $y$ (or $y$ \textbf{covers} $x$), and write $x \prec y$ or $y \succ x$, if $x <y$ and $x \leq z < y$ implies $z = x$.  The latter condition is demanding that there be no element $z$ of $P$ with $x < y < z$.
+\end{defn}
+Its mixture of natural language and (implicitly quantified) pointwise expressions makes this definition confusing.  This is a shame because the covering relation is fundamental to the construction of Hasse diagrams.  If students don't understand the covering relation, they can't fully understand the diagrams.  Thankfully, the Pointfree Transform (see \cite{Oliveira2009} for details) can be used to arrive at a better definition.
+
+\section{Deriving the Pointfree Definition}
+It would be best to remove the points from the above definition, so that we can place more emphasis on the order relation.  To achieve that we will take the pointwise definition and subject it to the Pointfree Transform:
+\begin{itemize}
+    \item $y \succ x$
+    \item[$\equiv$] $\{\text{Above definition}\}$
+    \item[] $y > x \wedge \forall(z : y > z \geq x : z = x )$
+    \item[$\equiv$] $\{\text{Predicate calculus}\}$
+    \item[] $y > x \wedge \neg \exists(z : y > z : z > x )$
+    \item[$\equiv$] $\{\text{Composition}\}$
+    \item[] $y > x \wedge \neg (y (> \cdot >) x )$
+    \item[$\equiv$] $\{\text{Difference}\}$
+    \item[] $y(> - > \cdot >)x$
+    \item[\Heart]
+\end{itemize}
+So the pointfree definition of the covering relation is simply
+\begin{equation}
+    \succ \; := \; > - > \cdot >
+\end{equation}
+Apart from its concision, this definition reveals directly how we can construct the covering relation associated with a partial order.
+
+\section{Constructing a Cover Relation}
+Unlike the pointwise definition, equation (1) gives us a recipe for the construction of a covering relation in three easy steps:
+\begin{enumerate}
+    \item Take a partial order $\geq$ and remove all of its reflexive arrows.  Call the result $>$.
+    \item Now take $>$ and compose it with itself to make another relation $> \cdot >$.
+    \item Remove from $>$ all of the arrows you find in $> \cdot >$.  The result is the cover relation associated with the partial order $\geq$.
+    \item[\Heart]
+\end{enumerate}
+And there we have it. No points necessary!
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
