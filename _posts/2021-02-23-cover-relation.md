@@ -13,7 +13,7 @@ Below are two diagrams of the same partial order:
 
 The first depicts the graph of a relation (called R), whereas the second shows R's _covering relation_.  It should be clear that the second is a pared-down version of the first.  The two are precisely connected by the following definition:
 
-> Let $P$ be an ordered set and let $x,y \in P$.  We say that $x$ is \textbf{covered by} $y$ (or $y$ \textbf{covers} $x$), and write $x \prec y$ or $y \succ x$, if $x <y$ and $x \leq z < y$ implies $z = x$.  The latter condition is demanding that there be no element $z$ of $P$ with $x < y < z$.
+> Let $$P$$ be an ordered set and let $$x,y \in P$$.  We say that $$x$$ is **covered by** $$y$$ (or $$y$$ **covers** $x$), and write $$x \prec y$$ or $$y \succ x$$, if $$x <y$$ and $$x \leq z < y$$ implies $$z = x$$.  The latter condition is demanding that there be no element $$z$$ of $$P$$ with $$x < y < z$$.
 
 As accurate as the definition is, it does not (in my opinion) give any sense for how a covering relation is actually constructed.  I have written a [note](/assets/2021/02/23/cover-relation/cover_relation.pdf) which explains how we can derive an alternative definition of the covering relation which is not only more concise, but also serves as a recipe for constructing one.
 
