@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Ordered Pairs"
-date: "2021-03-02"
+title: "Cartesian Product"
+date: "2021-03-03"
 author: "Adam W. Grant"
 ---
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
