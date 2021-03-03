@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{ marvosym }
+\usepackage{amscd}
+
+\title{Cartesian Product}
+\author{Adam W. Grant}
+\date{February 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This short note shows how to model a Cartesian Product in Alloy.
+
+\section{A Naive Model}
+Consider the following Alloy model
+\begin{verbatim}
+sig Pair {
+  fst: A,
+  snd: B,
+}
+
+sig A {}
+
+sig B {}
+\end{verbatim}
+It should be clear that the $Pair$ signature is intended to model the elements of the Cartesian Product of the sets $A$ and $B$.  Furthermore, it was intended to generate instances which exhibit a $Pair$ object for \emph{every} element of $A \times B$.  It might not be obvious why, but the model is insufficiently constrained to serve that purpose.  There are two reasons why.  Firstly, instances will be generated whereby two pairs sharing the same first and second coordinates are considered different.  Secondly, it admits instances where there are elements of $A$ and $B$ that do not `belong' to a pair.
+We can correct the first problem by telling Alloy about pair identity
+\begin{equation}
+    p = q \;\equiv\; fst.p = fst.q \wedge snd.p = snd.q
+\end{equation}
+The second problem is corrected by introducing a constraint equiavlent to
+\begin{equation}
+    \forall ( a,b : a \in A \wedge b \in B : \exists( p : a = fst.p \wedge b = snd.p ) )
+\end{equation}
+In what follows, we will translate these constraints into Alloy.
+
+\section{An Identity for Pairs}
+As obvious as it may seem, Alloy needs to be told that if one pair has the same first and second coordinates as another, then those two pairs are to be considered equal.  That is, our model must be constrained according to (1).  Instead of writing a direct translation, we will first rewrite it according to the Pointfree Transform (see \cite{Oliveira2009}):
+\begin{itemize}
+    \item $p = q$
+    \item[$\equiv$] \{ Pair equality \}
+    \item[] $fst.p = fst.q \wedge snd.p = snd.q$
+    \item[$\equiv$] \{ Introduce $id$ \}
+    \item[] $(fst.p) \mathrel{id} (fst.q) \wedge (snd.p) \mathrel{id}
+    (snd.q)$
+    \item[$\equiv$] \{ Guardanapo, twice \}
+    \item[] $p (fst^{\circ} \cdot \mathrel{id} \cdot fst) q \wedge p (snd^{\circ} \cdot \mathrel{id} \cdot snd) q$
+    \item[$\equiv$] \{ $id$ unit of composition \}
+    \item[] $p (fst^{\circ} \cdot fst) q \wedge p (snd^{\circ} \cdot snd)
+    q$
+    \item[$\equiv$] \{ Meet \}
+    \item[] $p (fst^{\circ} \cdot fst \cap snd^{\circ} \cdot snd)
+    q$
+    \item[\Heart]
+\end{itemize}
+Thus, the pointfree definition of the identity relation on $Pair$ is
+\begin{equation}
+    id_{Pair} := fst^{\circ} \cdot fst \cap snd^{\circ} \cdot snd
+\end{equation}
+which is rather neat.  It's Alloy equivalent\footnote{See reference \cite{6155724} for the rules mapping Alloy to Relation Algebra} is simply:
+\begin{verbatim}
+    iden:>Pair = fst.~fst & snd.~snd
+\end{verbatim}
+So much for Pair identity.
+
+\section{To every $a$ and $b$ a Pair}
+We need Alloy to generate as many pairs as there are combinations of $A$'s and $B$'s i.e. we need a fact equiavelnt to (2).  Again, we begin the PFT:
+\renewcommand{\labelitemii}{\textbullet}
+\begin{itemize}
+    \item $\forall ( a,b : a \in A \wedge b \in B : \exists( p : a = fst.p \wedge b = snd.p ) )$
+    \item[$\equiv$] \{ Focus on $\exists$ \}
+    \begin{itemize}
+        \item $\exists( p : a = fst.p \wedge b = snd.p )$
+        \item[$\equiv$] \{ Meaning of a function \}
+        \item[] $\exists( p : a \mathrel{fst} p \wedge b \mathrel{snd} p )$
+        \item[$\equiv$] \{ Converse \}
+        \item[] $\exists( p : a \mathrel{fst} p \wedge p \mathrel{snd^{\circ}} b )$
+        \item[$\equiv$] \{ Composition \}
+        \item[] $a(fst \cdot snd^{\circ})b$
+    \end{itemize}
+    \item[$\cdots$] $\forall ( a,b : a \in A \wedge b \in B : a(fst \cdot snd^{\circ})b )$
+    \item[$\equiv$] \{ Coreflexives \}
+    \item[] $\forall ( a,b : a(\phi_A \cdot \top \cdot\phi_B) b : a(fst \cdot snd^{\circ})b )$
+    \item[$\equiv$] \{ Inclusion \}
+    \item[] $\phi_A \cdot \top \cdot\phi_B \subseteq fst \cdot snd^{\circ}$
+    \item[\Heart]
+\end{itemize}
+The last expression in the above calculation is the one we will encode,  which is done as follows:
+\begin{verbatim}
+    B->A in ~snd.fst
+\end{verbatim}
+We are now in a position to construct the correct model.
+
+\section{The Complete Alloy Model}
+With the necessary constraints understood, we can write the properly constrained Alloy:
+\begin{verbatim}
+sig Pair {
+  fst: A,
+  snd: B,
+}
+
+sig A {}
+
+sig B {}
+
+fact { iden:>Pair = fst.~fst & snd.~snd }
+
+fact { B->A in ~snd.fst }
+\end{verbatim}
+which generates a well-formed $Pair$ for every member of the Cartesian product of sets $A$ and $B$.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

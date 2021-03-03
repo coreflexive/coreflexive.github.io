@@ -15,7 +15,9 @@ $$\uparrow Q := \{y \in P : \exists(x : x \in Q : y \geq x)\}$$
 
 Their associated coreflexive relations are, respectively,
 
-$$\delta(\Phi_{Q} \cdot \geq)$$, and
+$$\delta(\Phi_{Q} \cdot \geq)$$
+
+and
 
 $$\rho(\geq \cdot \Phi_{Q})$$
 
