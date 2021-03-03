@@ -25,4 +25,4 @@ fact { B->A in ~snd.fst }
 ```
 The model contains two facts.  The first defines an identity relation for the pair signature. As  obvious  as  it  may  seem,  Alloy  needs  to  be  told  that  if  one  pair  has  the same  first  and  second  coordinates  as  another,  then  those  two  pairs  are  to  be considered equal.  The second fact tells the analyser that every possible combination of `A` and `B` should have a corresponding `Pair` object.
 
-The derivations of the facts can be found in [this short note](/assets/2021/03/03/cartesian-product/cartesian_product.pdf)).
+The derivations of the facts can be found in [this short note](/assets/2021/03/03/cartesian-product/cartesian_product.pdf).
