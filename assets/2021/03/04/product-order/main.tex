@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{ marvosym }
+\usepackage{amscd}
+
+\title{Product of Orders}
+\author{Adam W. Grant}
+\date{March 2021}
+
+\newtheorem*{defn}{Defnition}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This short note presents a derivation of a pointfree version of the definition of the product of two partial orders.
+
+\section{Product of Orders}
+The following definition is from \cite{10.5555/551462}
+\begin{defn}
+Let $(A,\sqsupseteq_A)$ and $(B,\sqsupseteq_B)$ be two posets.  We define a partial ordering on the cartesian product $A \times B$ componentwise by
+\begin{equation}
+    (a',b') \sqsupseteq_{A\times B} (a,b) \;\equiv\; a' \sqsupseteq_A a \wedge b' \sqsupseteq_B b \tag{$\sqsupseteq$ of pairs}
+\end{equation}
+\end{defn}
+It is this definition that we will subject to the Pointfree Transform\footnote{See \cite{Oliveira2009} for an explanation of the process.}, in what remains of this note.
+
+\section{Removing the Points}
+Here we calculate the pointfree equivalent of equation ($\sqsupseteq$ of pairs):
+\renewcommand{\labelitemii}{\textbullet}
+\begin{itemize}
+    \item $(a',b') \sqsupseteq_{A\times B} (a,b)$
+    \item[$\equiv$] \{ ($\sqsupseteq$ of pairs) \}
+    \item[] $a' \sqsupseteq_A a \wedge b' \sqsupseteq_B b$
+    \item[$\equiv$] \{ Definitions of $fst$ and $snd$ \}
+    \item[] $fst(a',b') \sqsupseteq_A fst(a,b) \wedge snd(a',b') \sqsupseteq_B snd(a,b)$
+    \item[$\equiv$] \{ Guardanapo, twice \}
+    \item[] $(a',b') (fst^{\circ} \cdot \sqsupseteq_A \cdot fst) (a,b) \wedge (a',b') (snd^{\circ} \cdot \sqsupseteq_B \cdot snd) (a,b)$
+    \item[$\equiv$] \{ Meet \}
+    \item[] $(a',b') (fst^{\circ} \cdot \sqsupseteq_A \cdot fst \cap snd^{\circ} \cdot \sqsupseteq_B \cdot snd) (a,b)$
+    \item[\Heart]
+\end{itemize}
+That is, we have:
+\begin{equation*}
+    \sqsupseteq_{A\times B} \;:=\; fst^{\circ} \cdot \sqsupseteq_A \cdot fst \cap snd^{\circ} \cdot \sqsupseteq_B \cdot snd
+\end{equation*}
+which is free of points, as desired.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
