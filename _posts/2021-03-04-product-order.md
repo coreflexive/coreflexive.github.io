@@ -7,7 +7,7 @@ author: "Adam W. Grant"
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-I mentioned in [my last post]({% post_url 2021-03-03-cartesian-product %}) that explicitly modelling pairs facilitates writing quantifier-free Alloy.  In this post, I'll show you an example of when I've done just that.  Below is some Alloy that generates instances of the direct product of two partial orders using a relation on pairs:
+I mentioned in [my last post]({% post_url 2021-03-03-cartesian-product %}) that explicitly modelling pairs can sometimes facilitate writing quantifier-free Alloy.  In this post, I'll show you what I meant by that.  Below is some Alloy that generates instances of the direct product of two partial orders using a relation on pairs:
 ```alloy
 sig Pair {
   fst: A,
