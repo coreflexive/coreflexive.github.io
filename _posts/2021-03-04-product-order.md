@@ -12,7 +12,7 @@ I mentioned in [my last post]({% post_url 2021-03-03-cartesian-product %}) that 
 sig Pair {
   fst: A,
   snd: B,
-	X: set Pair
+  X: set Pair
 }
 
 fact { X = fst.R.~fst & snd.S.~snd}
@@ -34,21 +34,21 @@ fact { iden:>Pair = fst.~fst & snd.~snd }
 fact { B->A in ~snd.fst }
 
 pred partialOrder(r:univ->univ, s: set univ) {
-	reflexive[r,s]
-	transitive[r]
-	antisymmetric[r]
+  reflexive[r,s]
+  transitive[r]
+  antisymmetric[r]
 }
 
 pred reflexive(r:univ->univ, s: set univ) {
-	iden:>s in r
+  iden:>s in r
 }
 
 pred transitive(r:univ->univ) {
-	r.r in r
+  r.r in r
 }
 
 pred antisymmetric(r:univ->univ) {
-	r & ~r in iden
+  r & ~r in iden
 }
 ```
-The first fact in the model constrains the relation `X` such that it becomes the direct product of the two partial orders `A` and `B`.  (The check is there to convince us that this is the case). That the constraint doesn't need to mention points is a consequence of having modelled a `Pair` object equipped with projections `fst` and `snd`.  The fact was derived using the Pointfree Transform and a bit of Relation Algebra, as explained in [this note](/assets/2021/03/04/product-order/product_order.pdf).
+The first fact in the model constrains the relation `X` such that it becomes the direct product of the two partial orders `R` and `S`.  (The check is there to convince us that this is the case). That the constraint doesn't need to mention points is a consequence of having modelled a `Pair` object equipped with projections `fst` and `snd`.  The fact was derived using the Pointfree Transform and a bit of Relation Algebra, as explained in [this note](/assets/2021/03/04/product-order/product_order.pdf).
