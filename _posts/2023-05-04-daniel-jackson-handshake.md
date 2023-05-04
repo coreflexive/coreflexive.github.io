@@ -16,7 +16,7 @@ sig  P { spouse: P, Shake:  set P }
 
 The first thing to notice is that `spouse` is a *function* (i.e. a *simple* and *entire* relation).
 
-## The `spouse` Function
+## The spouse Function
 
 The comments in the original model make the translation into pointfree notation very easy. The requirement that "nobody is his or her own spouse" tells us that `spouse` should be irreflexive.
 
@@ -32,7 +32,7 @@ fact  spouse_involutive { spouse.spouse = iden:>P }
 
 That `spouse` is symmetric ("if q is p's spouse, p is q's spouse") and "no spouse sharing" is a consequence of irreflexivity and being involutive.
 
-## The `Shake` Relation
+## The Shake Relation
 
 We must ensure that "nobody shakes own or spouse's hand". The "nobody shakes own" part is described by irreflexivity.
 
