@@ -37,10 +37,6 @@ The version you see above isn't what I sent him, though.  My earlier version inc
 check { no front & rear }
 ```
 
-The model could be further simplified by exploiting the following Galois connection:
-
-> $R \subseteq X \wedge S \subseteq X \; \equiv \; R \cup S \subseteq X$
-
-meaning that we could have replaced the two injectivity constraints with one.  I'll leave that for you.
+The model could be further simplified by exploiting the universal property of relational join.  Meaning that we could have replaced the two injectivity constraints with one.  I'll leave that for you.
 
 Thanks to Michał for the inspiration.
