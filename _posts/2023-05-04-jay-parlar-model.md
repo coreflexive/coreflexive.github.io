@@ -33,7 +33,7 @@ sig Account { AR: set Resource, U: set User }
 sig User { UR: set Resource }
 ```
 
-As mentioned earlier, Alloy models are developed in stages.  Mine was, too, although I've not preserved the steps as a sequence of files.  I started the same way by declaring only the signatures.  Unlike Jay, I didn't declare all the relations at once.  I started with the one with the most structure.
+As mentioned earlier, Alloy models are developed in stages.  Mine was, too, although I've not preserved the steps as a sequence of files.  I started the same way by declaring only the signatures.  Although the code I've written in this post suggests otherwise, I didn't declare all the relations at once.  I started with the one with the most structure.
 
 ## Parent
 
