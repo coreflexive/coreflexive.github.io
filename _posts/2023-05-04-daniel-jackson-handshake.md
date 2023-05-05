@@ -60,7 +60,7 @@ We now have a complete description of the handshaking protocol for the puzzle.
 
 ## The Puzzle
 
-I would love to show you a pointfree version of the `puzzle` predicate, but I won't. So I've just copied the definition from the original specification.
+The pointfree Alloy version of the `puzzle` predicate is problematic.  I had to copy its definition from the original specification.
 
 ```alloy
 one  sig  H,  J  extends  P {}
@@ -72,7 +72,7 @@ pred  puzzle {
 
 ```
 
-It turns out that while the transform is straightforward in principle, its translation into Alloy results in a model that the analyser can't solve in a reasonable time. What's also funny is that we can rewrite the quantified constraint using universal double trading and again arrive at a less performant model. I'd love to know what's going on here.
+It turns out that while the transform is straightforward on paper, its translation into Alloy results in a model that the analyser can't solve in a reasonable time. What's also funny is that we can rewrite the quantified constraint using universal double trading and again arrive at a less performant model. I'd love to know what's going on here.
 
 
 I'm glad the transformation hasn't been a complete waste of time. To see what I mean, run the following commands.
