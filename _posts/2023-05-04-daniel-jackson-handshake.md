@@ -30,7 +30,7 @@ That "a person is his or her spouse's spouse" is captured by saying that `spouse
 fact  spouse_involutive { spouse.spouse = iden:>P }
 ```
 
-That `spouse` is symmetric ("if q is p's spouse, p is q's spouse") and "no spouse sharing" is a consequence of irreflexivity and being involutive.
+That `spouse` is symmetric ("if q is p's spouse, p is q's spouse") and "no spouse sharing" is a consequence of being an irreflexive and involutive function.
 
 ## The Shake Relation
 
