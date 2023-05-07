@@ -13,7 +13,6 @@ It bears a striking similarity to the *Lock Challenge* discussed in this [questi
 I'm not going to write a solver for the game.  Instead, I want to use relations to characterise guesses.  I'm going to use definitions from my `relmath` [repository](https://github.com/coreflexive/relmath).
 
 ```alloy
-open relmath/order
 open relmath/function
 ```
 
@@ -21,14 +20,12 @@ I'll get straight to it.
 
 ## Solutions and Guesses
 
-Solutions and guesses are functions over a linearly ordered domain `I` to a set of digits `D`.
+Solutions and guesses are functions over domain `I` to a set of digits `D`.
 
 ```alloy
-sig I { Nxt: lone I, sln,gss: D }
+sig I { sln,gss: D }
 
 sig D {}
-
-fact { linear_strict_order[I,^Nxt] }
 ```
 
 Neither the solution nor the guess is allowed to contain duplicates.  That means the functions `sln` and `gss` must be *injective*.
@@ -39,6 +36,8 @@ fact {
   injective[I,D,gss]
 }
 ```
+
+I had previously ordered the domain `I` but since realised doing so was not necessary.
 
 ## Agreement and Disagreement
 
