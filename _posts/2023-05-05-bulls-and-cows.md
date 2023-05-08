@@ -47,7 +47,7 @@ We need to know which part of the guess agrees with the solution.  We can achiev
 fun Agree : I->D { gss & sln }
 ```
 
-We also need to know where there is disagreement i.e. the *difference* between `gss` and `sln`.
+We also need to know where there is disagreement, i.e., the _difference_ between `gss` and `sln`.
 
 ```alloy
 fun Disagree : I->D { gss - sln }
@@ -63,7 +63,7 @@ The guess may be wrong for two reasons.  Digits may be misplaced.
 fun Misplaced : I->D { Disagree:>(I.sln) }
 ```
 
-Or digits might not occur in the solution i.e. they are unknown.
+Or digits might not occur in the solution, i.e., they are unknown.
 
 ```alloy
 fun Unknown : I->D { Disagree:>(D - I.sln) }
@@ -95,7 +95,7 @@ None of them generate counterexamples.
 
 ## Visualisation
 
-Now we are in a position to visualise what it means for our two functions to (dis)agree.
+Now we can visualise what it means for our two functions to (dis)agree.
 
 ```alloy
 run { no Disagree } for 4
