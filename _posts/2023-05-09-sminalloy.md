@@ -10,7 +10,9 @@ I was inspired to write it while watching one of Leslie Lamport's [videos](https
 
 I don't write much TLA+ or PlusCal.  I prefer tools like Alloy and FDR because they appeal to my taste for relation algebra, order theory and type theory.
 
-I've read a lot of online opinions comparing TLA+ and Alloy. Usually written by TLA+ practitioners, their punchline is often that Alloy is best suited to "relational structures".  The implication is that Alloy is inadequate at modelling when you want to explore evolving systems.  I find that sentiment amusing.  Perhaps because I have invested a lot of time studying relational approaches to modal logic, I can see most systems as "relational structures".  Daniel Jackson was right when he said that Alloy is _time-agnostic_.  But the _time-as-a-linearly-ordered-signature_ (aka trace) pattern he used in his book ultimately detracts from that brilliant feature.
+I've read a lot of online opinions comparing TLA+ and Alloy. Usually written by TLA+ practitioners, their punchline is often that Alloy is best suited to "relational structures".  The implication is that Alloy is inadequate for exploring evolving systems.  
+
+I find that sentiment amusing.  Perhaps because I have invested a lot of time studying relational approaches to modal logic, I can see most systems as "relational structures".  Daniel Jackson was right when he said that Alloy is _time-agnostic_.  But the _time-as-a-linearly-ordered-signature_ (aka trace) pattern he used in his book ultimately detracts from that brilliant feature.
 
 Lamport is a big fan of abstraction and encourages people to think abstractly.  In honour of that, I present a generalisation of the example he explains in the abovementioned video.
 
