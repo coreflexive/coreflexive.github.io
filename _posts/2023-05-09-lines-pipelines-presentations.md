@@ -108,4 +108,4 @@ pred no_sharing(V: set univ, R: V->V) {
 }
 ```
 
-A related issue is when modellers want none of their atoms to be isolated w.r.t a relation.  That's captured by *surjectivity*.
+A related issue is when modellers want none of their atoms to be isolated w.r.t a relation.  That's captured by *surjectivity/entirety*.
