@@ -8,7 +8,7 @@ I've just finished translating the definition of *difunctional* relations into A
 
 To understand why I'm happy with this one, you need to read this snippet from [the book](https://doi.org/10.1017/CBO9780511778810) I'm taking the definitions from:
 
-> $Q$ has block-diagonal form when suitably rearranging rows and columns independently.
+> `Q` has block-diagonal form when suitably rearranging rows and columns independently.
 
 That piece of intuition is beneficial when you're using matrices to visualise your difunctional relation.  It doesn't help much when using Alloy with all its arrows.  For example, here's a picture of a nice difunctional courtesy of Alloy:
 
