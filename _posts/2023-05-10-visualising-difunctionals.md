@@ -12,7 +12,7 @@ To understand why I'm happy with this one, you need to read this snippet from [t
 
 That piece of intuition is beneficial when you're using matrices to visualise your difunctional relation.  It doesn't help much when using Alloy with all its arrows.  For example, here's a picture of a nice difunctional courtesy of Alloy:
 
-![a difunctional relation](assets/difunctional.png)
+![a difunctional relation](/assets/difunctional.png)
 
 Can you spot what Schmidt means by "block-diagonal form"?  If not, try Professor Oliveira's description:
 
