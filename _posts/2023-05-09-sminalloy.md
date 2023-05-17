@@ -32,7 +32,7 @@ fact "Accessibility relation" {
 }
 
 fact "W identity"{
-  id[W] = ColumnEquivalence[W,W,S] & i.~i
+  id[W] = id[W] = i.~i
 }
 
 run {} for 5
