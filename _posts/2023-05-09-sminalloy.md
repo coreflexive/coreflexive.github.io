@@ -32,7 +32,7 @@ fact "Accessibility relation" {
 }
 
 fact "W identity"{
-  id[W] = id[W] = i.~i
+  id[W] = i.~i
 }
 
 run {} for 5
