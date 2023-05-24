@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="down"/>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="up"/>
+   <type name="seq/Int"/>
+</node>
+
+<node shape="Parallelogram" color="Green">
+   <type name="W"/>
+</node>
+
+<node visible="no">
+   <type name="Flag"/>
+   <type name="ordering/Ord"/>
+</node>
+
+<node visible="no" shape="Ellipse" color="Yellow">
+   <type name="Data"/>
+</node>
+
+<edge color="Gray" constraint="no">
+   <relation name="Next"> <type name="ordering/Ord"/> <type name="Flag"/> <type name="Flag"/> </relation>
+</edge>
+
+<edge color="Gray" visible="no" attribute="yes" constraint="no">
+   <relation name="ack"> <type name="W"/> <type name="Flag"/> </relation>
+   <relation name="First"> <type name="ordering/Ord"/> <type name="Flag"/> </relation>
+   <relation name="rdy"> <type name="W"/> <type name="Flag"/> </relation>
+</edge>
+
+<edge visible="no">
+   <relation name="Next"> <type name="W"/> <type name="W"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes">
+   <relation name="val"> <type name="W"/> <type name="Data"/> </relation>
+</edge>
+
+<edge visible="yes" label="Rcv">
+   <relation name="$Rcv"> <type name="W"/> <type name="W"/> </relation>
+</edge>
+
+<edge visible="yes" label="Send">
+   <relation name="$Send"> <type name="W"/> <type name="W"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
