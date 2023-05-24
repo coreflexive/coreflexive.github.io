@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node shape="Box">
+   <type name="Track"/>
+</node>
+
+<node shape="Box" color="Gray" label="O">
+   <type name="Occupied"/>
+</node>
+
+<node shape="Box" color="White" label="F">
+   <type name="Free"/>
+</node>
+
+<edge color="Green" visible="no" layout="yes" attribute="yes" label="Permit">
+   <relation name="$Permit"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+<edge color="Red" visible="no" layout="yes" label="Hazard">
+   <relation name="$Hazard"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+<edge layout="yes">
+   <relation name="Nxt"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+<edge visible="no" attribute="no" label="Opening">
+   <relation name="$Opening"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes" label="Option">
+   <relation name="$Option"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+<edge visible="no" layout="yes" attribute="no" label="Ahead">
+   <relation name="$Ahead"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+<edge visible="no" layout="yes" attribute="no" label="Confluence">
+   <relation name="$Confluence"> <type name="Track"/> <type name="Track"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
