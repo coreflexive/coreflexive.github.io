@@ -10,9 +10,7 @@ First and foremost, this specification reminds me why I can't ever hope to be an
 
 I've tried and failed to get good at combinatorics many times.  I wondered whether Alloy could be of any help.  After some hacking, I discovered that the number of games in a tournament has something to do with the size of the *diversity* relation on the set of teams.
 
-Then I got carried away.  
-
-I saw an opportunity to model a concurrent system.
+Then I got carried away.
 
 ## The Specification
 
