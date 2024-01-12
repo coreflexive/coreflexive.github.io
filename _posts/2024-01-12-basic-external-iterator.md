@@ -6,11 +6,6 @@ categories: "alloy"
 
 This model aims to illustrate the behaviour of an external iterator.
 
-```alloy
-open relmath/order
-open relmath/function
-```
-
 The `Next` relation represents the linked structure we want to traverse.
 
 ```alloy
