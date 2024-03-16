@@ -16,7 +16,7 @@ I was inspired to write it after reading an [MSc Thesis](https://haslab.github.i
 
 ## Supporting Definitions
 
-I've used a couple of relation-algebraic and order-theoretic definitions in this model.  You can find them in my [relmath](https://haslab.github.io/SpecRep/) repo.
+I've used a couple of relation-algebraic and order-theoretic definitions in this model.  You can find them in my [relmath](https://github.com/coreflexive/relmath) repo.
 
 ```alloy
 open relmath/order
