@@ -13,7 +13,7 @@ Tony Hoare tells us in his book "Communicating Sequential Processes":
 > $$
 > (x : B \to f(x))
 > $$
-> where $$f$$ is a function from symbols to processes, and where $$B$​$ may be empty (in the case of `STOP`)
+> where _f_ is a function from symbols to processes, and where _B_ may be empty (in the case of `STOP`)
 
 He subsequently explains how we could use the functional programming language LISP to implement the beginnings of a CSP interpreter.  I enjoy writing code in functional languages, but I am curious to see how to achieve the same in an object-oriented language instead.
 
