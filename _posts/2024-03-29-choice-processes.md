@@ -54,7 +54,7 @@ Clearly, we need to consider events in our model! But at this exploration stage,
 module Process[Event]
 ```
 
-We define `Process` as an abstract signature.  We will associate the composite `Menu` "operation" with it by declaring a relation of type $\text{Process} \to \text{Event}$.
+We define `Process` as an abstract signature.  We will associate the composite `Menu` "operation" with it by declaring a relation of type $\text{Process} \rightarrow \text{Event}$.
 
 ```alloy
 abstract sig Process {
@@ -62,7 +62,7 @@ abstract sig Process {
 }
 ```
 
-`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $e \to P$ where $e$ is an `Event` and `P` is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
+`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $e \rightarrow P$ where $e$ is an `Event` and `P` is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
 
 ```alloy
 sig Prefix extends Process {
@@ -71,7 +71,7 @@ sig Prefix extends Process {
 }
 ```
 
-The *composite* structure in our hierarchy is the `Choice`.  It is a collection of prefix objects, which we will model using a relation of type $\text{Choice} \to \text{Prefix}$.
+The *composite* structure in our hierarchy is the `Choice`.  It is a collection of prefix objects, which we will model using a relation of type $\text{Choice} \rightarrow \text{Prefix}$.
 
 ```alloy
 sig Choice extends Process {
@@ -138,9 +138,11 @@ pred choice_identity {
 ```
 
 The pointfree version of `choice_identity` is
+
 $$
 \frac{\text{Child}}{\text{Child}} \subseteq \text{id}_\text{Choice}
 $$
+
 Sadly, Alloy lacks syntax for division operators, so we must resort to quantifiers.  I find that upsetting.
 
 ### Stop
