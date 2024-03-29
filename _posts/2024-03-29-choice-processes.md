@@ -63,7 +63,7 @@ abstract sig Process {
 }
 ```
 
-`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $ e \rightarrow P $ where $ e $ is an `Event` and $ P $ is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
+`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $$ e \rightarrow P $$ where $$ e $$ is an `Event` and $$P$$ is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
 
 ```alloy
 sig Prefix extends Process {
@@ -72,7 +72,7 @@ sig Prefix extends Process {
 }
 ```
 
-The *composite* structure in our hierarchy is the `Choice`.  It is a collection of prefix objects, which we will model using a relation of type $ \text{Choice} \rightarrow \text{Prefix} $.
+The *composite* structure in our hierarchy is the `Choice`.  It is a collection of prefix objects, which we will model using a relation of type $$ \text{Choice} \rightarrow \text{Prefix} $$.
 
 ```alloy
 sig Choice extends Process {
