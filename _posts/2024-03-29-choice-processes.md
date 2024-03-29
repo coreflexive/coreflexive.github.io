@@ -13,7 +13,7 @@ Tony Hoare tells us in his book "Communicating Sequential Processes":
 > $$
 > (x : B \to f(x))
 > $$
-> where $f$ is a function from symbols to processes, and where $B$​ may be empty (in the case of `STOP`)
+> where $ f $ is a function from symbols to processes, and where $ B $​ may be empty (in the case of `STOP`)
 
 He subsequently explains how we could use the functional programming language LISP to implement the beginnings of a CSP interpreter.  I enjoy writing code in functional languages, but I am curious to see how to achieve the same in an object-oriented language instead.
 
@@ -55,7 +55,7 @@ Clearly, we need to consider events in our model! But at this exploration stage,
 module Process[Event]
 ```
 
-We define `Process` as an abstract signature.  We will associate the composite `Menu` "operation" with it by declaring a relation of type $\text{Process} \rightarrow \text{Event}$.
+We define `Process` as an abstract signature.  We will associate the composite `Menu` "operation" with it by declaring a relation of type $ \text{Process} \rightarrow \text{Event} $.
 
 ```alloy
 abstract sig Process {
@@ -63,7 +63,7 @@ abstract sig Process {
 }
 ```
 
-`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $e \rightarrow P$ where $e$ is an `Event` and `P` is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
+`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $ e \rightarrow P $ where $ e $ is an `Event` and $ P $ is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
 
 ```alloy
 sig Prefix extends Process {
@@ -72,7 +72,7 @@ sig Prefix extends Process {
 }
 ```
 
-The *composite* structure in our hierarchy is the `Choice`.  It is a collection of prefix objects, which we will model using a relation of type $\text{Choice} \rightarrow \text{Prefix}$.
+The *composite* structure in our hierarchy is the `Choice`.  It is a collection of prefix objects, which we will model using a relation of type $ \text{Choice} \rightarrow \text{Prefix} $.
 
 ```alloy
 sig Choice extends Process {
