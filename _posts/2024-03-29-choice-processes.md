@@ -13,7 +13,7 @@ Tony Hoare tells us in his book "Communicating Sequential Processes":
 > $$
 > (x : B \to f(x))
 > $$
-> where $ f $ is a function from symbols to processes, and where $ B $​ may be empty (in the case of `STOP`)
+> where $$ f $$ is a function from symbols to processes, and where $$ B $​$ may be empty (in the case of `STOP`)
 
 He subsequently explains how we could use the functional programming language LISP to implement the beginnings of a CSP interpreter.  I enjoy writing code in functional languages, but I am curious to see how to achieve the same in an object-oriented language instead.
 
@@ -55,7 +55,7 @@ Clearly, we need to consider events in our model! But at this exploration stage,
 module Process[Event]
 ```
 
-We define `Process` as an abstract signature.  We will associate the composite `Menu` "operation" with it by declaring a relation of type $ \text{Process} \rightarrow \text{Event} $.
+We define `Process` as an abstract signature.  We will associate the composite `Menu` "operation" with it by declaring a relation of type $$ \text{Process} \rightarrow \text{Event} $$.
 
 ```alloy
 abstract sig Process {
