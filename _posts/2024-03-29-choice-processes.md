@@ -63,7 +63,7 @@ abstract sig Process {
 }
 ```
 
-`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $$ e \rightarrow P $$ where $$ e $$ is an `Event` and $$P$$ is a `Processs`.  `Process` objects are the *leaves* of our hierarchy.
+`Prefix` processes are constructed from one `Event` and one `Process`.  They are typically written $$ e \rightarrow P $$ where $$ e $$ is an `Event` and $$P$$ is a `Processs`.  `Prefix` objects are the *leaves* of our hierarchy.
 
 ```alloy
 sig Prefix extends Process {
@@ -80,11 +80,11 @@ sig Choice extends Process {
 }
 ```
 
-Now, we must consider which constraints to apply to our structures to combine in a way we can recognise as having something to do with CSP. I'm not a fan of using facts in my models. I find they get in the way when we transition from static to dynamic modelling. We'll be using predicates instead.
+Now, we must consider which constraints to apply to our structures so they combine in a way we can recognise as having something to do with CSP. I'm not a fan of using facts in my models. I find they get in the way when we transition from static to dynamic modelling. We'll be using predicates instead.
 
 ## Predicates
 
-I've already constrained the model by how I've written the signatures.  In particular, the `head` and `body` relations have been defined as _functions_; that is, they are both simple and entire.  But as it stands, this specification will find instances that do not model CSP process.  To see what I mean, you can run the following command:
+I've already constrained the model by how I've written the signatures.  In particular, the `head` and `body` relations have been defined as _functions_; that is, they are both simple and entire.  But as it stands, this specification will find instances that do not model CSP processes.  To see what I mean, you can run the following command:
 
 ```alloy
 run {} for 5
@@ -94,9 +94,9 @@ Browse the instances, and you'll soon find structures that cannot be interpreted
 
 ![UnconstrainedHorror](/assets/UnconstrainedHorror.png)
 
-It is essential to understand that if we were to jump into implementation and create classes based on these unconstrained signatures, we would be building software capable of representing that instance, among other horrors.
+It is essential to understand that if we were to jump into implementation and create classes based on these unconstrained signatures, we would be building software capable of representing the instance above, among other horrors.
 
-We'll work inwards from the leaves of our hierarchy by first describing the structure of the Prefix processes and their contribution to the `Menu` relation.
+We'll work inwards from the leaves of our hierarchy by first describing the structure of `Prefix` processes and how they contribute to the `Menu` relation.
 
 ### Prefix
 
