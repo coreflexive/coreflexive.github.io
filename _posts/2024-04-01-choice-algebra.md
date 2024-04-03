@@ -6,6 +6,12 @@ categories: alloy csp
 
 # Choice Algebra
 
+## Update
+
+As interesting as I believe this model to be, it is not an accurate specification of the CSP choice operator. It *does* show how to write an operator that forms composite objects and demonstrates how to explore its algebraic properties. Please feel free to explore this model; just bear in mind that it doesn't describe what I wanted.
+
+---
+
 In this model, I demonstrate how to derive a binary operator on `Choice` objects and check some of its algebraic properties. We find that the `OpChoice` operator is an idempotent, symmetric monoid. This is encouraging because these are precisely the properties required of CSP's choice operator.
 
 ## Dependencies

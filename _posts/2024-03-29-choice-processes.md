@@ -7,6 +7,12 @@ categories: alloy csp
 
 # Choice Processes
 
+## Update
+
+As interesting as I believe this model to be, it is not an accurate specification of the CSP choice operator. It does explain how the Gang of Four's composite design pattern translates to Alloy. Please feel free to explore this model; bear in mind that it doesn't describe what I wanted.
+
+---
+
 Tony Hoare tells us in his book "Communicating Sequential Processes":
 
 > Every process P expressible in the notations introduced so far can be written in the form
